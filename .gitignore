@@ -1,0 +1,31 @@
+# Dependencies and build output
+node_modules/
+functions/lib/
+coverage/
+
+# Firebase deploy cache, logs, and per-deployer project link
+.firebase/
+.firebaserc
+*.log
+
+# Deployment config and local secrets. Only the example is committed.
+.env
+.env.*
+!.env.example
+.secret.local
+functions/.env
+functions/.env.*
+!functions/.env.example
+functions/.secret.local
+
+# Credentials downloaded from Google Cloud or Firebase
+client_secret*.json
+*service-account*.json
+serviceAccountKey.json
+*.pem
+*.p12
+*.key
+
+# OS and editor files
+.DS_Store
+.idea/

@@ -1,0 +1,34 @@
+{
+  "functions": [
+    {
+      "source": "functions",
+      "codebase": "default",
+      "ignore": ["node_modules", ".git", "test", "firebase-debug.log", "firebase-debug.*.log", "*.local"],
+      "predeploy": ["npm --prefix \"$RESOURCE_DIR\" run build"]
+    }
+  ],
+  "hosting": {
+    "public": "public",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "rewrites": [
+      {
+        "regex": "^/\\.well-known/.*$",
+        "function": { "functionId": "api", "region": "us-central1" }
+      },
+      {
+        "source": "**",
+        "function": { "functionId": "api", "region": "us-central1" }
+      }
+    ]
+  },
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "emulators": {
+    "functions": { "port": 5001 },
+    "firestore": { "port": 8081 },
+    "hosting": { "port": 5002 },
+    "ui": { "enabled": true }
+  }
+}
